@@ -1,3 +1,7 @@
+"use client";
+
+import Marquee from "react-fast-marquee";
+
 const whatsappMessage = encodeURIComponent("Hi Sienna Shea Butter! I'd love to order the Hibiscus Infused Shea Butter.");
 const whatsappUrl = `https://wa.me/27607729916?text=${whatsappMessage}`;
 
@@ -25,11 +29,10 @@ export default function Home() {
         <div className="hero-copy">
           <p className="eyebrow">HIBISCUS-INFUSED SHEA BUTTER</p>
           <h1>Care that lets your hair feel like itself.</h1>
-          <p className="hero-intro">Rich, long-lasting moisture for adults and children — whether your hair is natural, relaxed, coarse, or somewhere in between.</p>
           <div className="hero-actions"><a className="button button-dark" href={whatsappUrl}>Start your order <span aria-hidden="true">↗</span></a><a className="text-link" href="#about">Meet the butter <span aria-hidden="true">↓</span></a></div>
           <div className="trust-row" aria-label="Product highlights"><span><b>Small-batch</b> made</span><span><b>R180</b> per tub</span><span><b>Made to last</b> 1–2 months</span></div>
         </div>
-        <div className="hero-visual"><div className="sun-disc" /><div className="hero-image-wrap"><img src="/hibiscus-shea-butter-lifestyle.png" alt="Sienna Shea Butter hibiscus-infused product jar" /></div><p className="image-note">A little ritual for your wash day.</p></div>
+        <div className="hero-visual"><div className="sun-disc" /><div className="hero-image-wrap"><img src="/hibiscus-shea-butter-lifestyle.png" alt="Sienna Shea Butter hibiscus-infused product jar" /></div></div>
       </section>
       <section className="intro-band" id="about"><p className="eyebrow">MADE FOR THE WHOLE FAMILY</p><h2>One pot of rich, thoughtful care.</h2><p>Sienna Shea Butter was made for real hair routines — the wash days, protective styles, detangling moments, and in-between days that need a little softness.</p></section>
       <section className="product-section">
@@ -37,7 +40,7 @@ export default function Home() {
         <div className="product-details"><p className="eyebrow">THE ORIGINAL</p><h2>Hibiscus Infused Shea Butter</h2><p className="price">R180 <span>per tub</span></p><p>A thick, nourishing butter created to go a long way in your routine. Customers often come back after one to two months because their tub lasts.</p><ul className="ingredient-list"><li>Shea butter</li><li>Hibiscus petals</li><li>Coconut, aloe vera &amp; vitamin E</li></ul><a className="button button-dark" href={whatsappUrl}>Order your tub <span aria-hidden="true">↗</span></a></div>
       </section>
       <section className="ritual-section"><div><p className="eyebrow">YOUR ROUTINE, YOUR WAY</p><h2>Made to show up for every texture.</h2></div><div className="ritual-grid"><article><span>01</span><h3>Natural hair</h3><p>For moisture-rich routines and soft, touchable finishes.</p></article><article><span>02</span><h3>Relaxed hair</h3><p>A rich layer of care for your everyday maintenance.</p></article><article><span>03</span><h3>Kids’ hair</h3><p>Made with gentle family care at the heart of every tub.</p></article><article><span>04</span><h3>Protective styles</h3><p>Bring a little softness to the time between wash days.</p></article></div></section>
-      <section className="love-section" id="love"><div className="love-heading"><p className="eyebrow">CUSTOMER LOVE</p><h2>Real messages from real routines.</h2><p>These are the notes that keep Sienna growing, one family at a time.</p></div><div className="testimonial-window"><div className="testimonial-track">{[...testimonials, ...testimonials].map((t, index) => <figure key={`${t.quote}-${index}`}><blockquote>“{t.quote}”</blockquote><figcaption>{t.source}</figcaption></figure>)}</div></div></section>
+      <section className="love-section" id="love"><div className="love-heading"><p className="eyebrow">CUSTOMER LOVE</p><h2>Real messages from real routines.</h2><p>These are the notes that keep Sienna growing, one family at a time.</p></div><div className="testimonial-window"><Marquee speed={52} pauseOnHover gradient={false} autoFill>{testimonials.map((t) => <figure className="mx-[9px] min-h-[250px] w-[360px] bg-[#e7cfbf] p-[30px] max-sm:w-[270px]" key={t.quote}><blockquote className="mb-[35px] font-['Playfair_Display'] text-[28px] font-semibold leading-[1.15]">“{t.quote}”</blockquote><figcaption className="font-['DM_Mono'] text-[11px] uppercase">{t.source}</figcaption></figure>)}</Marquee></div></section>
       <section className="order-section" id="order"><div className="order-copy"><p className="eyebrow">READY WHEN YOU ARE</p><h2>Your next good hair day starts with a WhatsApp.</h2><p>Send a message to order. Payment is available by EFT or cash; local delivery can be arranged, with courier delivery available further away.</p><a className="button button-light" href={whatsappUrl}>Message to order <span aria-hidden="true">↗</span></a></div><div className="order-steps" aria-label="How to order"><div><span>1</span><p>Message Sienna on WhatsApp</p></div><div><span>2</span><p>Confirm your order &amp; payment</p></div><div><span>3</span><p>Receive it by local delivery or courier</p></div></div></section>
       <footer><img src="/sienna-logo.jpg" alt="Sienna Shea Butter" /><p>Small-batch hair care made with intention.</p><a href={whatsappUrl}>Order on WhatsApp ↗</a></footer>
     </main>
