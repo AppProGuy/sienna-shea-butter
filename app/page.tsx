@@ -2,14 +2,14 @@ const whatsappMessage = encodeURIComponent("Hi Sienna Shea Butter! I'd love to o
 const whatsappUrl = `https://wa.me/27607729916?text=${whatsappMessage}`;
 
 const testimonials = [
-  { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Customer message" },
-  { quote: "I absolutely love your product. It makes this hair so soft.", source: "Customer message" },
-  { quote: "The pot of gold has finally arrived.", source: "Customer message" },
-  { quote: "This thing works like magic — my hair has never looked and felt richer.", source: "Customer message" },
-  { quote: "My hair is super soft and fluffy after unplaiting. It’s that butter, baby.", source: "Customer message" },
-  { quote: "Made the detangling so easy.", source: "Customer message" },
-  { quote: "I am so happy with the results of my hair. Definitely ordering another one.", source: "Customer message" },
-  { quote: "I’m consistent with the butter and the compliments I’m getting are amazing.", source: "Customer message" },
+  { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
+  { quote: "I absolutely love your product. It makes this hair so soft.", source: "Zandi" },
+  { quote: "The pot of gold has finally arrived.", source: "Mukonie" },
+  { quote: "This thing works like magic — my hair has never looked and felt richer.", source: "Solly" },
+  { quote: "My hair is super soft and fluffy after unplaiting. It’s that butter, baby.", source: "Sunnyboi" },
+  { quote: "Made the detangling so easy.", source: "Tshiwe" },
+  { quote: "I am so happy with the results of my hair. Definitely ordering another one.", source: "Lab Felicity" },
+  { quote: "I’m consistent with the butter and the compliments I’m getting are amazing.", source: "Nomsa Xhamvu" },
 ];
 
 export default function Home() {
