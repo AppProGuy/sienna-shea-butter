@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CommunityPhotoCarousel } from "./community-photo-carousel";
 
 const whatsappMessage = encodeURIComponent(
   "Hi Sienna Shea Butter! I'd love to order the Hibiscus Infused Shea Butter."
@@ -101,18 +102,6 @@ const faqSchema = {
   })),
 };
 
-function CommunityPhotoGroup({ duplicate = false }: { duplicate?: boolean }) {
-  return (
-    <div className="community-photo-group" aria-hidden={duplicate || undefined}>
-      {communityPhotos.map((photo) => (
-        <figure className="community-photo" key={`${duplicate ? "duplicate-" : ""}${photo.src}`}>
-          <Image src={photo.src} alt={duplicate ? "" : photo.alt} width={780} height={980} sizes="(max-width: 640px) 226px, 268px" />
-        </figure>
-      ))}
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <main>
@@ -189,9 +178,7 @@ export default function Home() {
           <h2 id="community-title">Real people. Real hair. Real love.</h2>
           <p>From children’s wash days to men’s cuts, family hair care and natural styles, every photo is part of the story.</p>
         </div>
-        <div className="community-photo-window" role="region" aria-label="Customer photo gallery. The gallery pauses when you hover over it.">
-          <div className="community-photo-track"><CommunityPhotoGroup /><CommunityPhotoGroup duplicate /></div>
-        </div>
+        <CommunityPhotoCarousel photos={communityPhotos} />
       </section>
 
       <section className="hair-types-section">

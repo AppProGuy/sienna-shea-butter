@@ -119,14 +119,17 @@ nav a:hover, nav a:focus-visible { border-color: var(--ink); }
 .community-heading .eyebrow { color: #b7ca98; grid-column: 1 / -1; }
 .community-heading h2 { margin: 0; max-width: 720px; }
 .community-heading > p:last-child { color: #d2d6cc; line-height: 1.65; margin: 0 0 6px auto; max-width: 420px; }
+.community-photo-controls { display: flex; justify-content: flex-end; padding: 0 clamp(24px, 9vw, 150px) 18px; }
+.community-motion-toggle { align-items: center; background: transparent; border: 1px solid #778474; color: #f8f4e9; cursor: pointer; display: inline-flex; font: 500 11px "DM Mono", monospace; gap: 9px; letter-spacing: .06em; min-height: 42px; padding: 9px 13px; text-transform: uppercase; }
+.community-motion-toggle:hover { background: #33402f; }
+.community-motion-toggle:focus-visible { outline: 3px solid #d7885d; outline-offset: 4px; }
 .community-photo-window { overflow: hidden; }
-.community-photo-track { animation: community-scroll 58s linear infinite; display: flex; gap: 14px; width: max-content; }
-.community-photo-window:hover .community-photo-track, .community-photo-window:focus-within .community-photo-track { animation-play-state: paused; }
+.community-photo-track { display: flex; gap: 14px; transform: translate3d(0, 0, 0); width: max-content; will-change: transform; }
+.community-photo-measure { display: flex; }
 .community-photo-group { display: flex; gap: 14px; }
 .community-photo { background: #43503f; flex: 0 0 268px; height: 338px; margin: 0; overflow: hidden; }
 .community-photo:nth-child(3n + 2) { transform: translateY(18px); }
 .community-photo img { height: 100%; object-fit: cover; width: 100%; }
-@keyframes community-scroll { to { transform: translateX(calc(-50% - 7px)); } }
 
 .hair-types-section { background: var(--sage); padding: 100px clamp(24px, 9vw, 150px); }
 .hair-types-section .eyebrow { color: var(--deep); }
@@ -194,8 +197,9 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .community-photo-window { overflow-x: auto; }
-  .community-photo-track { animation: none; }
+  .community-photo-track { transform: none !important; }
   .community-photo-group[aria-hidden="true"] { display: none; }
+  .community-motion-toggle { display: none; }
   .header-cta, .button { transition: none; }
 }
 
@@ -242,7 +246,7 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .product-photo { max-height: 520px; }
   .community-section { padding: 76px 0 88px; }
   .community-heading { padding: 0 24px 40px; }
-  .community-photo-track { animation-duration: 48s; }
+  .community-photo-controls { padding: 0 24px 16px; }
   .community-photo { flex-basis: 226px; height: 292px; }
   .hair-types-section, .story-section, .love-section, .order-section { padding: 75px 24px; }
   .hair-types-grid { grid-template-columns: 1fr; margin-top: 40px; }
