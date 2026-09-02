@@ -46,6 +46,7 @@ h2 { font-size: clamp(39px, 4.2vw, 62px); line-height: 1; margin-bottom: 24px; }
 .brand { display: flex; flex-direction: column; line-height: .9; min-width: 145px; }
 .brand-word { font-size: 15px; font-weight: 600; letter-spacing: .4em; }
 .brand-script { font-family: "Playfair Display", serif; font-size: 23px; font-style: italic; margin-left: 4px; }
+.brand-origin { align-items: center; display: inline-flex; font: 500 8px/1.2 "DM Mono", monospace; gap: 5px; letter-spacing: .08em; margin-top: 8px; text-transform: uppercase; white-space: nowrap; }
 nav { display: flex; font-size: 14px; gap: 26px; }
 nav a { border-bottom: 1px solid transparent; padding-bottom: 3px; }
 nav a:hover, nav a:focus-visible { border-color: var(--ink); }
@@ -155,10 +156,9 @@ nav a:hover, nav a:focus-visible { border-color: var(--ink); }
 .early-photo-wide { aspect-ratio: 1 / 1; }
 .early-photo img { height: 100%; object-fit: cover; width: 100%; }
 
-.care-section { background: #e8e0d0; display: grid; grid-template-columns: 1fr 1fr; }
-.care-image { min-height: 760px; overflow: hidden; }
-.care-image img { height: 100%; object-fit: cover; width: 100%; }
-.care-copy { align-self: center; padding: clamp(70px, 8vw, 115px) clamp(28px, 7vw, 105px); }
+.care-section { background: #e8e0d0; }
+.care-copy { margin: 0 auto; max-width: 1000px; padding: clamp(80px, 10vw, 145px) clamp(24px, 10vw, 140px); width: 100%; }
+.care-copy h2 { max-width: 760px; }
 .care-copy > p:not(.eyebrow) { font-size: 17px; line-height: 1.7; max-width: 560px; }
 .care-steps { border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); display: grid; gap: 4px; margin: 30px 0; padding: 20px 0; }
 .care-steps p { font-size: 14px; line-height: 1.65; margin: 0; }
@@ -193,6 +193,7 @@ footer { align-items: center; background: #1b2418; color: #e6e4da; display: grid
 footer img { filter: grayscale(1) contrast(.8) brightness(1.8); mix-blend-mode: screen; width: 100px; }
 footer p, footer a { font-size: 13px; margin: 0; }
 footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
+.south-africa-flag { display: inline-block; font-size: 18px; margin-left: 5px; vertical-align: -2px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -205,7 +206,7 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
 
 @media (max-width: 980px) {
   nav { display: none; }
-  .hero, .product-section, .story-section, .care-section, .order-section { grid-template-columns: 1fr; }
+  .hero, .product-section, .story-section, .order-section { grid-template-columns: 1fr; }
   .hero { gap: 26px; padding-bottom: 60px; }
   .hero-copy { max-width: 720px; }
   .hero-visual { min-height: 430px; }
@@ -219,7 +220,6 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .founder-portrait { max-width: 560px; position: static; }
   .story-copy { padding: 70px 0 0; }
   .early-days { margin-top: 65px; }
-  .care-image { min-height: 560px; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid figure:last-child { grid-column: auto; }
   .order-section { gap: 48px; }
@@ -231,6 +231,7 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .brand { min-width: 120px; }
   .brand-word { font-size: 12px; }
   .brand-script { font-size: 18px; }
+  .brand-origin { font-size: 7px; gap: 4px; letter-spacing: .06em; margin-top: 7px; }
   .header-cta { font-size: 10px; min-height: 42px; padding: 9px 11px; }
   .hero { min-height: 0; padding: 42px 22px 55px; }
   .hero h1 { font-size: clamp(48px, 14vw, 64px); }
@@ -257,7 +258,6 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .early-days { grid-template-columns: 1fr 1fr; margin-top: 58px; }
   .early-days-heading { grid-column: 1 / -1; padding: 0 0 10px; }
   .early-photo-wide { aspect-ratio: 4 / 5; }
-  .care-image { min-height: 430px; }
   .care-copy { padding: 70px 24px; }
   .love-heading { display: block; }
   .love-heading > p { margin-top: 22px; }

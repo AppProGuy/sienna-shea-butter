@@ -114,6 +114,7 @@ export default function Home() {
         <a className="brand" href="#top" aria-label="Sienna Shea Butter home">
           <span className="brand-word">SIENNA</span>
           <span className="brand-script">Shea Butter</span>
+          <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#butter">Our butter</a>
@@ -214,7 +215,6 @@ export default function Home() {
       </section>
 
       <section className="care-section" id="care">
-        <div className="care-image"><Image src="/media/natural-hair-care-guide.jpg" alt="Illustration of a woman caring for her natural coily hair" width={1400} height={1400} sizes="(max-width: 980px) 100vw, 50vw" /></div>
         <div className="care-copy">
           <p className="eyebrow">HOW TO CARE FOR MY HAIR</p>
           <h2>Simple moisture care for natural hair.</h2>
@@ -257,7 +257,7 @@ export default function Home() {
 
       <footer>
         <Image src="/sienna-logo.jpg" alt="Sienna Shea Butter" width={100} height={100} />
-        <p>Small-batch natural hair care, made with intention in South Africa.</p>
+        <p>Small-batch natural hair care, made with intention in South Africa. <span className="south-africa-flag" role="img" aria-label="South African flag">🇿🇦</span></p>
         <a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a>
       </footer>
     </main>
