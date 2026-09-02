@@ -152,7 +152,7 @@ export default function Home() {
       </section>
 
       <section className="product-section">
-        <div className="product-photo"><Image src="/media/community-product-in-hands.jpg" alt="A customer holding a jar of Sienna Hibiscus Infused Shea Butter" width={820} height={1000} sizes="(max-width: 980px) 82vw, 42vw" /></div>
+        <div className="product-photo"><Image src="/media/hibiscus-shea-butter-hero.jpg" alt="A jar of Sienna Hibiscus Infused Shea Butter" width={1000} height={1500} sizes="(max-width: 980px) 82vw, 42vw" /></div>
         <div className="product-details">
           <p className="eyebrow">THE ORIGINAL</p>
           <h2>Hibiscus Infused Shea Butter</h2>
