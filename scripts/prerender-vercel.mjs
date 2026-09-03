@@ -6,6 +6,8 @@ const pages = [
   { path: "/", output: "index.html" },
   { path: "/robots.txt", output: "robots.txt" },
   { path: "/sitemap.xml", output: "sitemap.xml" },
+  { path: "/hibiscus-infused-shea-butter", output: "hibiscus-infused-shea-butter/index.html" },
+  { path: "/delivery-and-collection", output: "delivery-and-collection/index.html" },
   { path: "/how-to-use-shea-butter", output: "how-to-use-shea-butter/index.html" },
   { path: "/kids-natural-hair-care", output: "kids-natural-hair-care/index.html" },
   { path: "/mixed-texture-hair-care", output: "mixed-texture-hair-care/index.html" },

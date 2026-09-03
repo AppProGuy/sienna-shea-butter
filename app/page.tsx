@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { CommunityPhotoCarousel } from "./community-photo-carousel";
-import { instagramUrl, siteUrl, whatsappUrl } from "./site-data";
+import { instagramUrl, productPath, siteUrl, whatsappUrl } from "./site-data";
 
 const testimonials = [
   { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
@@ -93,23 +93,6 @@ const organizationSchema = {
   sameAs: [instagramUrl],
 };
 
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Sienna Hibiscus Infused Shea Butter",
-  image: `${siteUrl}/media/hibiscus-shea-butter-hero.jpg`,
-  description: "A thick, small-batch shea butter blend for moisture-focused natural and family hair-care routines.",
-  brand: { "@type": "Brand", name: "Sienna Shea Butter" },
-  weight: "200 g",
-  offers: {
-    "@type": "Offer",
-    url: siteUrl,
-    priceCurrency: "ZAR",
-    price: "180",
-    availability: "https://schema.org/InStock",
-  },
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -124,7 +107,6 @@ export default function Home() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="announcement">Small-batch natural hair care made in South Africa</div>
@@ -150,7 +132,7 @@ export default function Home() {
           <p className="hero-intro">Rich, small-batch moisture care for afro, coily, curly, mixed-texture and relaxed hair — made for adults, children and everyday family routines.</p>
           <div className="hero-actions">
             <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order for R180 <span aria-hidden="true">↗</span></a>
-            <a className="text-link" href="#butter">Meet the butter <span aria-hidden="true">↓</span></a>
+            <a className="text-link" href={productPath}>Meet the butter <span aria-hidden="true">↗</span></a>
           </div>
           <div className="trust-row" aria-label="Product highlights">
             <span><b>Small-batch</b> made</span>
@@ -188,6 +170,7 @@ export default function Home() {
             <li>Fragrance oil</li>
           </ul>
           <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order your tub <span aria-hidden="true">↗</span></a>
+          <a className="product-details-link" href={productPath}>View full product details <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
@@ -265,6 +248,7 @@ export default function Home() {
           <h2>Order Sienna Shea Butter on WhatsApp.</h2>
           <p>Order your R180 200g tub on WhatsApp. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
           <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+          <a className="order-details-link" href="/delivery-and-collection">Delivery &amp; collection details <span aria-hidden="true">↗</span></a>
           <p className="order-hours">WhatsApp ordering hours: 09:00–18:00</p>
         </div>
         <div className="order-steps" aria-label="How to order">
