@@ -1,4 +1,4 @@
-export const siteUrl = "https://sienna-shea-butter.magnanimiss.chatgpt.site";
+export const siteUrl = "https://siennashea.co.za";
 
 export const whatsappMessage = encodeURIComponent(
   "Hi Sienna Shea Butter! I'd love to order the Hibiscus Infused Shea Butter."

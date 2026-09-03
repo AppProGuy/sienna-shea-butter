@@ -4,7 +4,7 @@ A mobile-first, WhatsApp-led website for Sienna Shea Butter, a South African sma
 
 ## Live website
 
-[sienna-shea-butter.magnanimiss.chatgpt.site](https://sienna-shea-butter.magnanimiss.chatgpt.site)
+[siennashea.co.za](https://siennashea.co.za)
 
 ## Run locally
 
