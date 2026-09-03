@@ -29,4 +29,4 @@ npm run build
 - Tailwind CSS
 - OpenAI Sites / Vinext hosting output
 
-The website includes SEO metadata and structured data, responsive layouts, accessible motion controls, a WhatsApp ordering flow, product information, founder story, hair-care guidance, customer photos, and testimonials.
+The website includes SEO metadata and structured data, responsive layouts, accessible motion controls, a WhatsApp ordering flow, product information, founder story, searchable hair-care guides, customer photos, and testimonials.

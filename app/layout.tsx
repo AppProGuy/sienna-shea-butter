@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-const siteUrl = "https://sienna-shea-butter.magnanimiss.chatgpt.site";
+import { siteUrl } from "./site-data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Shea Butter for Natural Hair | Sienna South Africa",
-  description: "Shop Sienna hibiscus-infused shea butter for afro, coily, curly, mixed-texture, relaxed and kids’ hair. R180 per tub. Order on WhatsApp in South Africa.",
+  description: "Shop Sienna hibiscus-infused shea butter for afro, coily, curly, mixed-texture, relaxed and kids’ hair. R180 per 200g tub. Order on WhatsApp in South Africa.",
   applicationName: "Sienna Shea Butter",
   alternates: { canonical: "/" },
   openGraph: {

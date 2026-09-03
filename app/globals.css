@@ -63,7 +63,7 @@ nav a:hover, nav a:focus-visible { border-color: var(--ink); }
 
 .header-cta { border: 1px solid var(--ink); padding: 12px 17px; }
 .header-cta:hover, .button:hover { transform: translateY(-2px); }
-.header-cta:focus-visible, .button:focus-visible, .text-link:focus-visible, summary:focus-visible, footer a:focus-visible {
+.header-cta:focus-visible, .button:focus-visible, .text-link:focus-visible, summary:focus-visible, footer a:focus-visible, .hair-types-grid a:focus-visible, .guide-related a:focus-visible {
   outline: 3px solid #d7885d;
   outline-offset: 4px;
 }
@@ -139,6 +139,7 @@ nav a:hover, nav a:focus-visible { border-color: var(--ink); }
 .hair-types-grid span { font: 12px "DM Mono", monospace; }
 .hair-types-grid h3 { font: 600 25px/1.05 "Playfair Display", serif; margin: 58px 0 9px; }
 .hair-types-grid p { font-size: 14px; line-height: 1.55; }
+.hair-types-grid a { border-bottom: 1px solid currentColor; display: inline-block; font-size: 13px; font-weight: 600; margin-top: 14px; padding-bottom: 3px; }
 
 .story-section { background: #eee5d8; display: grid; grid-template-columns: .9fr 1.1fr; padding: clamp(75px, 10vw, 150px); }
 .founder-portrait { align-self: start; margin: 0; max-width: 540px; }
@@ -184,6 +185,7 @@ nav a:hover, nav a:focus-visible { border-color: var(--ink); }
 .order-section h2 { max-width: 650px; }
 .order-copy > p:not(.eyebrow) { line-height: 1.65; max-width: 590px; }
 .order-copy .button { margin-top: 16px; }
+.order-hours { color: #d6ddcd; font-size: 13px; margin: 18px 0 0; }
 .order-steps { border-top: 1px solid #75826c; }
 .order-steps div { align-items: center; border-bottom: 1px solid #75826c; display: flex; gap: 22px; padding: 21px 0; }
 .order-steps span { border: 1px solid #a5b895; border-radius: 50%; display: grid; flex: 0 0 28px; height: 28px; place-items: center; width: 28px; }
@@ -193,7 +195,40 @@ footer { align-items: center; background: #1b2418; color: #e6e4da; display: grid
 footer img { filter: grayscale(1) contrast(.8) brightness(1.8); mix-blend-mode: screen; width: 100px; }
 footer p, footer a { font-size: 13px; margin: 0; }
 footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
+.footer-links { align-items: flex-end; display: flex; flex-direction: column; gap: 13px; }
 .south-africa-flag { display: inline-block; font-size: 18px; margin-left: 5px; vertical-align: -2px; }
+
+.guide-page { background: var(--cream); min-height: 100vh; }
+.guide-header { align-items: center; background: color-mix(in srgb, var(--cream) 94%, transparent); display: flex; justify-content: space-between; padding: 20px clamp(24px, 6vw, 96px); }
+.guide-hero { background: #e8e0d0; display: grid; gap: clamp(40px, 8vw, 130px); grid-template-columns: 1fr .85fr; padding: clamp(68px, 10vw, 140px) clamp(24px, 10vw, 160px); }
+.guide-hero > div { align-self: center; max-width: 680px; }
+.guide-hero > div > p:not(.eyebrow) { font-size: 18px; line-height: 1.7; max-width: 590px; }
+.guide-hero .button { margin-top: 22px; }
+.guide-hero figure { aspect-ratio: 4 / 5; background: #d7c4b5; margin: 0; max-height: 620px; overflow: hidden; }
+.guide-hero figure img { height: 100%; object-fit: cover; width: 100%; }
+.guide-content { background: var(--paper); display: grid; gap: clamp(42px, 8vw, 120px); grid-template-columns: .8fr 1.2fr; padding: clamp(75px, 11vw, 155px) clamp(24px, 10vw, 160px); }
+.guide-intro { max-width: 410px; }
+.guide-intro p:last-child { line-height: 1.7; }
+.guide-steps { border-top: 1px solid var(--line); list-style: none; margin: 0; padding: 0; }
+.guide-steps li { border-bottom: 1px solid var(--line); display: grid; gap: 22px; grid-template-columns: 45px 1fr; padding: 22px 0; }
+.guide-steps li > span { color: var(--moss); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; padding-top: 3px; }
+.guide-steps h3 { font: 600 25px/1.1 "Playfair Display", serif; margin-bottom: 8px; }
+.guide-steps p { font-size: 15px; line-height: 1.65; margin-bottom: 0; max-width: 560px; }
+.guide-questions { background: var(--sage-light); display: grid; gap: clamp(44px, 8vw, 130px); grid-template-columns: .8fr 1.2fr; padding: clamp(75px, 11vw, 155px) clamp(24px, 10vw, 160px); }
+.guide-questions > div:first-child { max-width: 400px; }
+.guide-faq-list { border-top: 1px solid #9aa991; }
+.guide-faq-list details { border-bottom: 1px solid #9aa991; padding: 18px 0; }
+.guide-faq-list summary { cursor: pointer; font-size: 16px; font-weight: 600; list-style-position: outside; margin-left: 18px; padding-right: 8px; }
+.guide-faq-list p { font-size: 14px; line-height: 1.65; margin: 13px 0 0 18px; max-width: 610px; }
+.guide-related { background: var(--deep); color: #f9f5eb; padding: clamp(75px, 11vw, 145px) clamp(24px, 10vw, 160px); }
+.guide-related .eyebrow { color: #b7ca98; }
+.guide-related h2 { max-width: 650px; }
+.guide-related > div { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; margin-top: 48px; }
+.guide-related a { background: #33402f; display: block; min-height: 210px; padding: 30px; transition: background-color .2s ease, transform .2s ease; }
+.guide-related a:hover { background: #42523c; transform: translateY(-3px); }
+.guide-related h3 { font: 600 clamp(26px, 2.3vw, 35px)/1.1 "Playfair Display", serif; margin-bottom: 18px; }
+.guide-related h3 span { font-family: "DM Sans", sans-serif; font-size: .75em; }
+.guide-related p { color: #d9dfd0; font-size: 14px; line-height: 1.65; margin-bottom: 0; max-width: 430px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -223,6 +258,9 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .testimonial-grid { grid-template-columns: 1fr 1fr; }
   .testimonial-grid figure:last-child { grid-column: auto; }
   .order-section { gap: 48px; }
+  .guide-hero, .guide-content, .guide-questions { grid-template-columns: 1fr; }
+  .guide-hero > div, .guide-intro, .guide-questions > div:first-child { max-width: 700px; }
+  .guide-hero figure { max-width: 590px; }
 }
 
 @media (max-width: 640px) {
@@ -263,5 +301,12 @@ footer a { border-bottom: 1px solid #bac6ae; padding-bottom: 3px; }
   .love-heading > p { margin-top: 22px; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .testimonial-grid figure { min-height: 230px; }
+  .guide-header { padding: 17px 18px; }
+  .guide-hero { padding: 58px 24px 72px; }
+  .guide-hero > div > p:not(.eyebrow) { font-size: 16px; }
+  .guide-content, .guide-questions, .guide-related { padding: 72px 24px; }
+  .guide-related > div { grid-template-columns: 1fr; margin-top: 34px; }
+  .guide-related a { min-height: 0; }
   footer { gap: 10px; grid-template-columns: 1fr; }
+  .footer-links { align-items: flex-start; margin-top: 10px; }
 }

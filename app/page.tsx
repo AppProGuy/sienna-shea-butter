@@ -1,11 +1,6 @@
 import Image from "next/image";
 import { CommunityPhotoCarousel } from "./community-photo-carousel";
-
-const whatsappMessage = encodeURIComponent(
-  "Hi Sienna Shea Butter! I'd love to order the Hibiscus Infused Shea Butter."
-);
-const whatsappUrl = `https://wa.me/27607729916?text=${whatsappMessage}`;
-const siteUrl = "https://sienna-shea-butter.magnanimiss.chatgpt.site";
+import { instagramUrl, siteUrl, whatsappUrl } from "./site-data";
 
 const testimonials = [
   { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
@@ -49,7 +44,7 @@ const faqs = [
   },
   {
     question: "Can I use it for kids’ afro or mixed-texture hair?",
-    answer: "It can be used in a simple family hair-care routine for afro, curly, coily, and mixed-texture hair. Use a small amount, avoid the eyes, and patch test first when trying any new fragranced cosmetic product.",
+    answer: "Many families use a small amount as part of a simple hair-care routine for afro, curly, coily, and mixed-texture hair. Patch test first, avoid the eyes, and stop use if irritation occurs. For babies or children with eczema or very sensitive skin, speak to a healthcare professional first.",
   },
   {
     question: "How do I detangle thick or coarse hair more gently?",
@@ -63,6 +58,26 @@ const faqs = [
     question: "Is Sienna a black hair treatment?",
     answer: "Sienna is a cosmetic hair butter for moisture-focused care, not a medical treatment. If your scalp is sore, inflamed, or persistently itchy, stop use and speak to a healthcare professional.",
   },
+  {
+    question: "How long does a 200g tub last?",
+    answer: "Because Sienna is thick, a 200g tub can last about one to two months depending on hair length, density, and how often you use it.",
+  },
+  {
+    question: "Can I use it on my skin?",
+    answer: "Some customers choose to use a small amount on their skin. Patch test first, avoid the eyes and broken or irritated skin, and stop use if irritation occurs.",
+  },
+  {
+    question: "Can men use it for hair or beards?",
+    answer: "Yes. Use a small amount as part of a hair or beard grooming routine. Patch test first and avoid the mouth and eyes.",
+  },
+  {
+    question: "Does it melt in hot weather?",
+    answer: "It can soften or melt in warm conditions because it is made with natural oils. Store it in a cool, dry place. Once cooled, it can still be used as intended.",
+  },
+  {
+    question: "Can it heal alopecia or treat hair loss?",
+    answer: "No. Sienna is a cosmetic hair butter, not a medical treatment or cure for alopecia, hair loss, or scalp conditions. Speak to a qualified healthcare professional for those concerns.",
+  },
 ];
 
 const organizationSchema = {
@@ -74,6 +89,8 @@ const organizationSchema = {
   telephone: "+27 60 772 9916",
   description: "South African small-batch hibiscus-infused shea butter for natural, afro, coily, curly, mixed-texture, relaxed, and kids’ hair care.",
   areaServed: { "@type": "Country", name: "South Africa" },
+  founder: { "@type": "Person", name: "Mashudu" },
+  sameAs: [instagramUrl],
 };
 
 const productSchema = {
@@ -83,6 +100,7 @@ const productSchema = {
   image: `${siteUrl}/media/hibiscus-shea-butter-hero.jpg`,
   description: "A thick, small-batch shea butter blend for moisture-focused natural and family hair-care routines.",
   brand: { "@type": "Brand", name: "Sienna Shea Butter" },
+  weight: "200 g",
   offers: {
     "@type": "Offer",
     url: siteUrl,
@@ -119,7 +137,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#butter">Our butter</a>
           <a href="#story">Our story</a>
-          <a href="#care">Hair care</a>
+          <a href="/how-to-use-shea-butter">Hair care</a>
           <a href="#love">Customer love</a>
         </nav>
         <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
@@ -136,7 +154,7 @@ export default function Home() {
           </div>
           <div className="trust-row" aria-label="Product highlights">
             <span><b>Small-batch</b> made</span>
-            <span><b>R180</b> per tub</span>
+            <span><b>200g</b> per tub</span>
             <span><b>Rich texture</b> a little goes far</span>
           </div>
         </div>
@@ -157,7 +175,7 @@ export default function Home() {
         <div className="product-details">
           <p className="eyebrow">THE ORIGINAL</p>
           <h2>Hibiscus Infused Shea Butter</h2>
-          <p className="price">R180 <span>per tub</span></p>
+          <p className="price">R180 <span>per 200g tub</span></p>
           <p>A thick, nourishing hair butter created to go a long way. Warm a small amount between your palms, then smooth it over damp, hydrated hair to help seal in moisture.</p>
           <h3 className="ingredients-heading">What’s inside</h3>
           <ul className="ingredient-list">
@@ -185,24 +203,24 @@ export default function Home() {
       <section className="hair-types-section">
         <div><p className="eyebrow">CARE FOR EVERY TEXTURE</p><h2>Find your way to use it.</h2></div>
         <div className="hair-types-grid">
-          <article><span>01</span><h3>Afro, coily &amp; curly</h3><p>Seal in moisture after water or leave-in care, then style as usual.</p></article>
-          <article><span>02</span><h3>Mixed-texture hair</h3><p>Begin with a tiny amount, concentrating on the driest lengths and ends.</p></article>
-          <article><span>03</span><h3>Kids’ hair</h3><p>Use a little at a time for sectioning, detangling and everyday styling.</p></article>
-          <article><span>04</span><h3>Relaxed &amp; protective styles</h3><p>Bring softness to dry ends, braids, twists and in-between days.</p></article>
+          <article><span>01</span><h3>Afro, coily &amp; curly</h3><p>Seal in moisture after water or leave-in care, then style as usual.</p><a href="/how-to-use-shea-butter">Read the guide ↗</a></article>
+          <article><span>02</span><h3>Mixed-texture hair</h3><p>Begin with a tiny amount, concentrating on the driest lengths and ends.</p><a href="/mixed-texture-hair-care">Read the guide ↗</a></article>
+          <article><span>03</span><h3>Kids’ hair</h3><p>Use a little at a time for sectioning, detangling and everyday styling.</p><a href="/kids-natural-hair-care">Read the guide ↗</a></article>
+          <article><span>04</span><h3>Relaxed &amp; protective styles</h3><p>Bring softness to dry ends, braids, twists and in-between days.</p><a href="/how-to-use-shea-butter">Read the guide ↗</a></article>
         </div>
       </section>
 
       <section className="story-section" id="story">
         <div className="founder-portrait">
           <Image src="/media/sienna-founder-ceo-v2.jpg" alt="The founder of Sienna Shea Butter" width={1280} height={1600} sizes="(max-width: 980px) 82vw, 38vw" />
-          <p>Founder of Sienna Shea Butter</p>
+          <p>Mashudu — founder of Sienna Shea Butter</p>
         </div>
         <div className="story-copy">
           <p className="eyebrow">OUR ORIGIN STORY</p>
           <h2>It began with a sensitive scalp and a wooden spoon.</h2>
           <p className="story-lede">“I didn’t start it as a business. I wanted to make my own hair products.”</p>
-          <p>In 2016, after years of relaxed hair and the burning, itchy feeling that came with it, Sienna’s founder cut her hair and began learning what her natural texture needed.</p>
-          <p>By 2019, she had researched natural-hair care, spoken to people already making products, and bought her first shea butter and oils. With no mixer, she blended that first batch over the stove with a wooden spoon.</p>
+          <p>In 2016, after years of relaxed hair and the burning, itchy feeling that came with it, Mashudu cut her hair and began learning what her natural texture needed.</p>
+          <p>By 2019, she had researched natural-hair care, spoken to people already making products, and bought her first shea butter and oils. With no mixer, Mashudu blended that first batch over the stove with a wooden spoon.</p>
           <p>Her colleagues noticed how soft, shiny and moisturised her hair looked. Samples became requests to buy. Those customers shared Sienna with friends and family, growing a community of women, men, children, beard-care customers and barbers who appreciated softer, well-cared-for hair.</p>
           <p className="story-signoff">Today, Sienna is still growing the same way it began: one real recommendation at a time.</p>
         </div>
@@ -245,20 +263,21 @@ export default function Home() {
         <div className="order-copy">
           <p className="eyebrow">READY WHEN YOU ARE</p>
           <h2>Order Sienna Shea Butter on WhatsApp.</h2>
-          <p>Send a message to order your R180 tub. Payment is available by EFT or cash; local delivery can be arranged, with courier delivery available further away.</p>
+          <p>Order your R180 200g tub on WhatsApp. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
           <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+          <p className="order-hours">WhatsApp ordering hours: 09:00–18:00</p>
         </div>
         <div className="order-steps" aria-label="How to order">
           <div><span>1</span><p>Message Sienna on WhatsApp</p></div>
           <div><span>2</span><p>Confirm your order and payment</p></div>
-          <div><span>3</span><p>Receive it by local delivery or courier</p></div>
+          <div><span>3</span><p>Choose Aramex courier or collection</p></div>
         </div>
       </section>
 
       <footer>
         <Image src="/sienna-logo.jpg" alt="Sienna Shea Butter" width={100} height={100} />
         <p>Small-batch natural hair care, made with intention in South Africa. <span className="south-africa-flag" role="img" aria-label="South African flag">🇿🇦</span></p>
-        <a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a>
+        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
       </footer>
     </main>
   );
