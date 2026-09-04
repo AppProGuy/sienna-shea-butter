@@ -40,6 +40,9 @@ that do not support modern formats.
   homepage, product page, delivery page, or a hair-care guide.
 - Verify the domain in Google Search Console and Bing Webmaster Tools, submit
   the sitemap, and only then add analytics with an approved privacy approach.
+- After a production release, run `npm run indexnow:submit` once to notify
+  IndexNow-participating search engines of the changed URLs. Confirm first that
+  the hosted key file at the site root is publicly reachable.
 - The detailed action plan and founder decisions are in
   [SEO-IMPLEMENTATION-TODO.md](./SEO-IMPLEMENTATION-TODO.md).
 

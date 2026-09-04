@@ -11,6 +11,7 @@
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "media:optimize": "node scripts/generate-responsive-images.mjs",
+    "indexnow:submit": "node scripts/submit-indexnow.mjs",
     "vercel:prerender": "node scripts/prerender-vercel.mjs"
   },
   "dependencies": {

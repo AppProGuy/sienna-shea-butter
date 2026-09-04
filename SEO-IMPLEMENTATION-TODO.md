@@ -37,7 +37,8 @@ safe website work from items that need an owner decision or account access.
 ## Needs account access or a person outside the website
 
 - [ ] Verify the site in Google Search Console and Bing Webmaster Tools; submit the
-      sitemap, then enable IndexNow.
+      sitemap. IndexNow is prepared in the release and is submitted after the
+      public deploy confirms the hosted key file is reachable.
 - [ ] Add analytics only after choosing a provider and accepting its privacy/cookie
       implications. Track WhatsApp click events.
 - [ ] Keep the Google Business Profile as a service-area profile; confirm hours,
