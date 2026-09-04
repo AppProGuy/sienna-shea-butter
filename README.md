@@ -43,6 +43,8 @@ that do not support modern formats.
 - After a production release, run `npm run indexnow:submit` once to notify
   IndexNow-participating search engines of the changed URLs. Confirm first that
   the hosted key file at the site root is publicly reachable.
+- Run `npm run verify:live` after that release. It checks every storefront page,
+  search-discovery file, and the preferred URL redirects before IndexNow is sent.
 - The detailed action plan and founder decisions are in
   [SEO-IMPLEMENTATION-TODO.md](./SEO-IMPLEMENTATION-TODO.md).
 
