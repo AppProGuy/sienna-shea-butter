@@ -31,6 +31,8 @@ that do not support modern formats.
 ## Search and measurement
 
 - `robots.txt` and `sitemap.xml` are generated at the site root.
+- `llms.txt` is a concise, factual reference for AI systems that choose to read it;
+  it is supplementary and does not replace crawlable pages, a sitemap or third-party proof.
 - The preferred public URL is `https://siennashea.co.za`; the Vercel
   configuration redirects `www` to that URL and removes trailing slashes after
   deployment.

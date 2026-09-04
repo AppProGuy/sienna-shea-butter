@@ -19,6 +19,8 @@ safe website work from items that need an owner decision or account access.
       preferred canonical URL where host configuration permits.
 - [x] Add distinct WhatsApp order messages for the homepage, product, delivery and
       guide pages so the source of an enquiry is visible inside WhatsApp.
+- [x] Provide a concise, factual `llms.txt` reference for AI systems that choose to
+      read it. It supplements—not replaces—crawlable pages and independent proof.
 - [x] Add a concise source/measurement note to the project documentation.
 - [x] Test the final production build, mobile and desktop rendering, gallery motion, metadata,
       sitemap, robots, canonical URLs and key order links.
