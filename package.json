@@ -10,6 +10,7 @@
     "build": "vinext build",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "media:optimize": "node scripts/generate-responsive-images.mjs",
     "vercel:prerender": "node scripts/prerender-vercel.mjs"
   },
   "dependencies": {

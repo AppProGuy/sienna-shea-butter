@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CommunityPhotoCarousel } from "./community-photo-carousel";
-import { instagramUrl, productPath, siteUrl, whatsappUrl } from "./site-data";
+import { ResponsiveImage } from "./responsive-image";
+import { homepageWhatsAppUrl, instagramUrl, productPath, siteUrl, whatsappUrl } from "./site-data";
 
 const testimonials = [
   { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
@@ -82,14 +83,34 @@ const faqs = [
 
 const organizationSchema = {
   "@context": "https://schema.org",
+  "@id": `${siteUrl}/#organization`,
   "@type": "Organization",
   name: "Sienna Shea Butter",
   url: siteUrl,
   logo: `${siteUrl}/sienna-logo.jpg`,
   telephone: "+27 60 772 9916",
   description: "South African small-batch hibiscus-infused shea butter for natural, afro, coily, curly, mixed-texture, relaxed, and kids’ hair care.",
+  foundingDate: "2019",
   areaServed: { "@type": "Country", name: "South Africa" },
-  founder: { "@type": "Person", name: "Mashudu" },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    telephone: "+27 60 772 9916",
+    areaServed: { "@type": "Country", name: "South Africa" },
+    availableLanguage: "en",
+  },
+  founder: { "@id": `${siteUrl}/#mashudu` },
+  sameAs: [instagramUrl],
+};
+
+const founderSchema = {
+  "@context": "https://schema.org",
+  "@id": `${siteUrl}/#mashudu`,
+  "@type": "Person",
+  name: "Mashudu",
+  jobTitle: "Founder",
+  worksFor: { "@id": `${siteUrl}/#organization` },
+  description: "Founder of Sienna Shea Butter, a South African small-batch hair-care brand.",
   sameAs: [instagramUrl],
 };
 
@@ -107,6 +128,7 @@ export default function Home() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(founderSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="announcement">Small-batch natural hair care made in South Africa</div>
@@ -122,7 +144,7 @@ export default function Home() {
           <a href="/how-to-use-shea-butter">Hair care</a>
           <a href="#love">Customer love</a>
         </nav>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <a className="header-cta" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
       </header>
 
       <section className="hero" id="top">
@@ -131,7 +153,7 @@ export default function Home() {
           <h1>Shea butter for soft, manageable natural hair.</h1>
           <p className="hero-intro">Rich, small-batch moisture care for afro, coily, curly, mixed-texture and relaxed hair — made for adults, children and everyday family routines.</p>
           <div className="hero-actions">
-            <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order for R180 <span aria-hidden="true">↗</span></a>
+            <a className="button button-dark" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order for R180 <span aria-hidden="true">↗</span></a>
             <a className="text-link" href={productPath}>Meet the butter <span aria-hidden="true">↗</span></a>
           </div>
           <div className="trust-row" aria-label="Product highlights">
@@ -140,9 +162,9 @@ export default function Home() {
             <span><b>Rich texture</b> a little goes far</span>
           </div>
         </div>
-        <div className="hero-visual" aria-hidden="true">
+        <div className="hero-visual">
           <div className="sun-disc" />
-          <div className="hero-image-wrap"><Image src="/media/hibiscus-shea-butter-hero.jpg" alt="" width={1400} height={1400} sizes="(max-width: 640px) 245px, (max-width: 980px) 290px, 31vw" priority /></div>
+          <div className="hero-image-wrap"><ResponsiveImage src="/media/hibiscus-shea-butter-hero.jpg" alt="A jar of Sienna Hibiscus Infused Shea Butter" width={1000} height={1500} sizes="(max-width: 640px) 245px, (max-width: 980px) 290px, 31vw" priority /></div>
         </div>
       </section>
 
@@ -153,7 +175,7 @@ export default function Home() {
       </section>
 
       <section className="product-section">
-        <div className="product-photo"><Image src="/media/hibiscus-shea-butter-hero.jpg" alt="A jar of Sienna Hibiscus Infused Shea Butter" width={1000} height={1500} sizes="(max-width: 980px) 82vw, 42vw" /></div>
+        <div className="product-photo"><ResponsiveImage src="/media/hibiscus-shea-butter-hero.jpg" alt="A jar of Sienna Hibiscus Infused Shea Butter" width={1000} height={1500} sizes="(max-width: 980px) 82vw, 42vw" /></div>
         <div className="product-details">
           <p className="eyebrow">THE ORIGINAL</p>
           <h2>Hibiscus Infused Shea Butter</h2>
@@ -169,7 +191,7 @@ export default function Home() {
             <li>Essential oils</li>
             <li>Fragrance oil</li>
           </ul>
-          <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order your tub <span aria-hidden="true">↗</span></a>
+          <a className="button button-dark" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order your tub <span aria-hidden="true">↗</span></a>
           <a className="product-details-link" href={productPath}>View full product details <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -189,13 +211,13 @@ export default function Home() {
           <article><span>01</span><h3>Afro, coily &amp; curly</h3><p>Seal in moisture after water or leave-in care, then style as usual.</p><a href="/how-to-use-shea-butter">Read the guide ↗</a></article>
           <article><span>02</span><h3>Mixed-texture hair</h3><p>Begin with a tiny amount, concentrating on the driest lengths and ends.</p><a href="/mixed-texture-hair-care">Read the guide ↗</a></article>
           <article><span>03</span><h3>Kids’ hair</h3><p>Use a little at a time for sectioning, detangling and everyday styling.</p><a href="/kids-natural-hair-care">Read the guide ↗</a></article>
-          <article><span>04</span><h3>Relaxed &amp; protective styles</h3><p>Bring softness to dry ends, braids, twists and in-between days.</p><a href="/how-to-use-shea-butter">Read the guide ↗</a></article>
+          <article><span>04</span><h3>Relaxed &amp; protective styles</h3><p>Bring softness to dry ends, braids, twists and in-between days.</p><a href="/shea-butter-relaxed-hair">Read the guide ↗</a></article>
         </div>
       </section>
 
       <section className="story-section" id="story">
         <div className="founder-portrait">
-          <Image src="/media/sienna-founder-ceo-v2.jpg" alt="The founder of Sienna Shea Butter" width={1280} height={1600} sizes="(max-width: 980px) 82vw, 38vw" />
+          <ResponsiveImage src="/media/sienna-founder-ceo-v2.jpg" alt="Mashudu, founder of Sienna Shea Butter" width={1280} height={1600} sizes="(max-width: 980px) 82vw, 38vw" />
           <p>Mashudu — founder of Sienna Shea Butter</p>
         </div>
         <div className="story-copy">
@@ -209,9 +231,9 @@ export default function Home() {
         </div>
         <div className="early-days">
           <div className="early-days-heading"><p className="eyebrow">THE EARLY DAYS</p><p>From hand-mixed batches and handwritten packages to the jar you know today.</p></div>
-          <figure className="early-photo early-photo-wide"><Image src="/media/community-sienna-bag.jpg" alt="An early Sienna order in simple paper packaging" width={900} height={900} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
-          <figure className="early-photo"><Image src="/media/community-early-gift-wrap.jpg" alt="Early Sienna Shea Butter gift wrapping" width={900} height={800} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
-          <figure className="early-photo"><Image src="/media/community-handwritten-packages.jpg" alt="Sienna orders wrapped by hand with personal messages" width={900} height={1100} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
+          <figure className="early-photo early-photo-wide"><ResponsiveImage src="/media/community-sienna-bag.jpg" alt="An early Sienna order in simple paper packaging" width={1000} height={968} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
+          <figure className="early-photo"><ResponsiveImage src="/media/community-early-gift-wrap.jpg" alt="Early Sienna Shea Butter gift wrapping" width={1000} height={888} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
+          <figure className="early-photo"><ResponsiveImage src="/media/community-handwritten-packages.jpg" alt="Sienna orders wrapped by hand with personal messages" width={752} height={1000} sizes="(max-width: 640px) 46vw, 27vw" /></figure>
         </div>
       </section>
 
@@ -246,10 +268,10 @@ export default function Home() {
         <div className="order-copy">
           <p className="eyebrow">READY WHEN YOU ARE</p>
           <h2>Order Sienna Shea Butter on WhatsApp.</h2>
-          <p>Order your R180 200g tub on WhatsApp. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
-          <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+          <p>Order your R180 200g tub on WhatsApp. Pay by EFT or cash. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Free collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
+          <a className="button button-light" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
           <a className="order-details-link" href="/delivery-and-collection">Delivery &amp; collection details <span aria-hidden="true">↗</span></a>
-          <p className="order-hours">WhatsApp ordering hours: 09:00–18:00</p>
+          <p className="order-hours">WhatsApp ordering hours: Monday–Friday, 09:00–18:00</p>
         </div>
         <div className="order-steps" aria-label="How to order">
           <div><span>1</span><p>Message Sienna on WhatsApp</p></div>

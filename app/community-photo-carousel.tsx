@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { ResponsiveImage } from "./responsive-image";
 
 type CommunityPhoto = {
   src: string;
@@ -13,13 +13,13 @@ function PhotoGroup({ photos, duplicate = false }: { photos: CommunityPhoto[]; d
     <div className="community-photo-group" aria-hidden={duplicate || undefined}>
       {photos.map((photo) => (
         <figure className="community-photo" key={`${duplicate ? "duplicate-" : ""}${photo.src}`}>
-          <Image
+          <ResponsiveImage
             src={photo.src}
             alt={duplicate ? "" : photo.alt}
             width={780}
             height={980}
             sizes="(max-width: 640px) 226px, 268px"
-            loading="eager"
+            loading="lazy"
           />
         </figure>
       ))}

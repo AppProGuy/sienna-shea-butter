@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ResponsiveImage } from "../responsive-image";
 import {
   deliveryPath,
   instagramUrl,
   product,
   productPath,
+  productWhatsAppUrl,
   productUrl,
   siteUrl,
   whatsappUrl,
@@ -40,20 +42,27 @@ const ingredients = [
 
 const productSchema = {
   "@context": "https://schema.org",
+  "@id": `${productUrl}#product`,
   "@type": "Product",
   name: product.name,
   image: [`${siteUrl}${product.image}`],
   description: product.description,
   brand: { "@type": "Brand", name: "Sienna Shea Butter" },
+  countryOfOrigin: { "@type": "Country", name: "South Africa" },
   weight: { "@type": "QuantitativeValue", value: 200, unitCode: "GRM" },
   material: ingredients.join(", "),
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Texture", value: "Thick, rich butter" },
+    { "@type": "PropertyValue", name: "Typical tub life", value: "About one to two months, depending on use" },
+  ],
   offers: {
     "@type": "Offer",
     url: productUrl,
     priceCurrency: product.currency,
     price: product.price,
     availability: "https://schema.org/InStock",
-    seller: { "@type": "Organization", name: "Sienna Shea Butter" },
+    itemCondition: "https://schema.org/NewCondition",
+    seller: { "@id": `${siteUrl}/#organization` },
   },
 };
 
@@ -78,7 +87,7 @@ export default function HibiscusInfusedSheaButterPage() {
           <span className="brand-script">Shea Butter</span>
           <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <a className="header-cta" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
       </header>
 
       <section className="detail-hero">
@@ -88,12 +97,13 @@ export default function HibiscusInfusedSheaButterPage() {
           <p>A rich, thick hair butter made for moisture-focused routines. Start with a little after hydration, then let your own texture and routine guide the amount.</p>
           <p className="detail-price">R180 <span>per 200g tub</span></p>
           <div className="detail-hero-actions">
-            <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp <span aria-hidden="true">↗</span></a>
+            <a className="button button-dark" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp <span aria-hidden="true">↗</span></a>
             <a className="text-link" href={deliveryPath}>Delivery &amp; collection <span aria-hidden="true">↗</span></a>
+            <a className="text-link" href="/natural-hair-care-cost-south-africa">Simple price guide <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <figure>
-          <Image src={product.image} alt={product.imageAlt} width={1400} height={1400} sizes="(max-width: 980px) 88vw, 46vw" priority />
+          <ResponsiveImage src={product.image} alt={product.imageAlt} width={1000} height={1500} sizes="(max-width: 980px) 88vw, 46vw" priority />
         </figure>
       </section>
 
@@ -130,8 +140,8 @@ export default function HibiscusInfusedSheaButterPage() {
       <section className="detail-cta">
         <p className="eyebrow">READY WHEN YOU ARE</p>
         <h2>Order your 200g tub directly from Sienna.</h2>
-        <p>Message on WhatsApp to confirm your order, payment, and whether Aramex courier or Centurion collection suits you best.</p>
-        <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+        <p>Message on WhatsApp to confirm your order, EFT or cash payment, and whether Aramex courier or Centurion collection suits you best.</p>
+        <a className="button button-dark" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
       </section>
 
       <footer>

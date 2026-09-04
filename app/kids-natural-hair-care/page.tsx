@@ -13,8 +13,11 @@ export default function KidsNaturalHairCarePage() {
       eyebrow="KIDS’ NATURAL HAIR CARE"
       title="A simple routine for kids’ afro and mixed-texture hair."
       intro="A calm routine, a little water and patient sectioning can make care days feel easier. This guide is for everyday cosmetic hair care, not for treating scalp or skin conditions."
+      path="/kids-natural-hair-care"
+      updatedAt="2026-09-05T00:00:00.000Z"
       image="/media/community-parent-child-product.jpg"
       imageAlt="A parent and child holding Sienna Shea Butter"
+      orderMessage="Hi Sienna Shea Butter! I read your kids’ natural hair-care guide and would like to order the Hibiscus Infused Shea Butter."
       steps={[
         { title: "Start with damp hair", body: "After washing or a light mist, work on hair that feels hydrated rather than dry. This gives you a gentler base for detangling and styling." },
         { title: "Work in small sections", body: "Divide hair into manageable sections. Begin at the ends with fingers or a wide-tooth comb, then slowly work upward." },

@@ -13,8 +13,11 @@ export default function HowToUseSheaButterPage() {
       eyebrow="HOW TO USE SHEA BUTTER"
       title="Use less, after hydration, and let your hair lead."
       intro="Sienna Hibiscus Infused Shea Butter is a thick, moisture-focused cosmetic hair butter. It is made to be used in small amounts as part of a simple natural-hair routine."
+      path="/how-to-use-shea-butter"
+      updatedAt="2026-09-05T00:00:00.000Z"
       image="/media/community-product-closeup.jpg"
       imageAlt="A close-up of Sienna Shea Butter in a customer’s hand"
+      orderMessage="Hi Sienna Shea Butter! I read your guide on how to use shea butter and would like to order the Hibiscus Infused Shea Butter."
       steps={[
         { title: "Hydrate first", body: "Begin on damp hair after washing, lightly misting, or applying your preferred leave-in product. Butter helps seal in moisture; it does not replace water." },
         { title: "Warm a pea-sized amount", body: "Sienna is rich and thick. Start with a pea-sized amount, warm it between your palms and add more only if your hair needs it." },
@@ -29,8 +32,8 @@ export default function HowToUseSheaButterPage() {
         { question: "Can Sienna heal alopecia or treat hair loss?", answer: "No. Sienna is a cosmetic hair butter, not a medical treatment or cure for alopecia, hair loss or scalp conditions. Speak to a qualified healthcare professional for those concerns." },
       ]}
       related={[
-        { href: "/kids-natural-hair-care", title: "Kids’ natural hair care", body: "A simple, patient routine for children’s afro and mixed-texture hair." },
-        { href: "/mixed-texture-hair-care", title: "Mixed-texture hair care", body: "Learn how to vary the amount you use from section to section." },
+        { href: "/loc-lco-shea-butter", title: "LOC and LCO layering", body: "See where a thick butter can fit in a hydration-first routine." },
+        { href: "/highveld-winter-hair-care", title: "Highveld winter hair care", body: "A simple routine for dry winter days and moisture-focused care." },
       ]}
     />
   );

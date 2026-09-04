@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { instagramUrl, whatsappUrl } from "./site-data";
+import { ResponsiveImage } from "./responsive-image";
+import { instagramUrl, siteUrl, whatsappOrderUrl, whatsappUrl } from "./site-data";
 
 /* eslint-disable @next/next/no-html-link-for-pages */
 
@@ -23,8 +24,11 @@ type HairCareGuideProps = {
   eyebrow: string;
   title: string;
   intro: string;
+  path: string;
+  updatedAt: string;
   image: string;
   imageAlt: string;
+  orderMessage: string;
   steps: GuideStep[];
   questions: GuideQuestion[];
   related: GuideLink[];
@@ -34,21 +38,60 @@ export function HairCareGuide({
   eyebrow,
   title,
   intro,
+  path,
+  updatedAt,
   image,
   imageAlt,
+  orderMessage,
   steps,
   questions,
   related,
 }: HairCareGuideProps) {
+  const guideWhatsAppUrl = whatsappOrderUrl(orderMessage);
+  const pageUrl = `${siteUrl}${path}`;
+  const guideSchema = {
+    "@context": "https://schema.org",
+    "@id": `${pageUrl}#guide`,
+    "@type": "Article",
+    headline: title,
+    description: intro,
+    mainEntityOfPage: pageUrl,
+    image: `${siteUrl}${image}`,
+    dateModified: updatedAt,
+    author: { "@id": `${siteUrl}/#mashudu` },
+    publisher: { "@id": `${siteUrl}/#organization` },
+    articleSection: eyebrow,
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: questions.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: title, item: pageUrl },
+    ],
+  };
+
   return (
     <main className="guide-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="guide-header">
         <a className="brand" href="/" aria-label="Sienna Shea Butter home">
           <span className="brand-word">SIENNA</span>
           <span className="brand-script">Shea Butter</span>
           <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <a className="header-cta" href={guideWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
       </header>
 
       <section className="guide-hero">
@@ -56,10 +99,11 @@ export function HairCareGuide({
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p>{intro}</p>
-          <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Order the 200g butter <span aria-hidden="true">↗</span></a>
+          <p className="guide-byline">Written by Mashudu, founder of Sienna Shea Butter · Updated 5 September 2026</p>
+          <a className="button button-dark" href={guideWhatsAppUrl} target="_blank" rel="noreferrer">Order the 200g butter <span aria-hidden="true">↗</span></a>
         </div>
         <figure>
-          <Image src={image} alt={imageAlt} width={1080} height={1280} sizes="(max-width: 800px) 88vw, 42vw" priority />
+          <ResponsiveImage src={image} alt={imageAlt} width={1080} height={1280} sizes="(max-width: 800px) 88vw, 42vw" priority />
         </figure>
       </section>
 

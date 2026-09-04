@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ResponsiveImage } from "../responsive-image";
 import {
   collectionDetails,
+  deliveryWhatsAppUrl,
   deliveryPath,
   instagramUrl,
   productPath,
@@ -14,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Shea Butter Delivery & Collection | Centurion | Sienna",
   description:
-    "Order Sienna Hibiscus Infused Shea Butter by WhatsApp. Aramex courier starts from R120, or arrange collection in Eco Park, Centurion from 09:00–18:00.",
+    "Order Sienna Hibiscus Infused Shea Butter by WhatsApp. Aramex courier starts from R120, or arrange free collection in Eco Park, Centurion, Monday to Friday.",
   alternates: { canonical: deliveryPath },
   openGraph: {
     type: "website",
@@ -46,21 +48,21 @@ export default function DeliveryAndCollectionPage() {
           <span className="brand-script">Shea Butter</span>
           <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
-        <a className="header-cta" href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <a className="header-cta" href={deliveryWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
       </header>
 
       <section className="detail-hero">
         <div className="detail-hero-copy">
           <p className="eyebrow">ORDERING MADE SIMPLE</p>
           <h1>Delivery or collection, arranged with you.</h1>
-          <p>Every order is confirmed personally on WhatsApp. Choose Aramex courier for delivery or arrange collection in Eco Park, Centurion before travelling.</p>
+          <p>Every order is confirmed personally on WhatsApp. Choose Aramex courier for delivery anywhere in South Africa, or arrange free collection in Eco Park, Centurion before travelling.</p>
           <div className="detail-hero-actions">
-            <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+            <a className="button button-dark" href={deliveryWhatsAppUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
             <a className="text-link" href={productPath}>View the butter <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <figure>
-          <Image src="/media/community-product-in-hands.jpg" alt="A customer holding a labelled jar of Sienna Shea Butter" width={1000} height={1300} sizes="(max-width: 980px) 88vw, 46vw" priority />
+          <ResponsiveImage src="/media/community-product-in-hands.jpg" alt="A customer holding a labelled jar of Sienna Shea Butter" width={815} height={1000} sizes="(max-width: 980px) 88vw, 46vw" priority />
         </figure>
       </section>
 
@@ -74,7 +76,7 @@ export default function DeliveryAndCollectionPage() {
         <div className="detail-content-intro">
           <p className="eyebrow">ARAMEX COURIER</p>
           <h2 id="delivery-title">Delivery that starts with a real conversation.</h2>
-          <p>Message first so Sienna can confirm the delivery address, courier cost, and the best route for your order before payment is made.</p>
+          <p>Message first so Sienna can confirm the delivery address, courier cost, EFT or cash payment details, and the best route for your order before it is packed.</p>
         </div>
         <div className="detail-callout">
           <div><h3>Courier starts from R120</h3><p>Aramex delivery starts from R120. The final courier amount can be higher outside the province.</p></div>
@@ -87,10 +89,10 @@ export default function DeliveryAndCollectionPage() {
         <div className="detail-section-copy">
           <p className="eyebrow">COLLECTION IN CENTURION</p>
           <h2 id="collection-title">Please arrange collection before you come through.</h2>
-          <p>Collection is available in Eco Park, Centurion. Send a WhatsApp message first so the collection time can be confirmed.</p>
+          <p>Free collection is available in Eco Park, Centurion. Send a WhatsApp message first so the collection time and exact address can be confirmed privately.</p>
         </div>
         <div className="detail-callout">
-          <div><h3>Collection point</h3><p>{collectionDetails.address}</p></div>
+          <div><h3>Collection area</h3><p>{collectionDetails.area}. The exact address is shared once your collection time is confirmed.</p></div>
           <div><h3>Collection hours</h3><p>{collectionDetails.hours}. Please arrange your collection time on WhatsApp before travelling.</p></div>
           <div><h3>Need help choosing?</h3><p>Send a message with your hair routine or delivery question. Sienna will help you decide whether courier or collection makes the most sense.</p></div>
         </div>
@@ -99,8 +101,8 @@ export default function DeliveryAndCollectionPage() {
       <section className="detail-cta">
         <p className="eyebrow">READY WHEN YOU ARE</p>
         <h2>Order Sienna Shea Butter on WhatsApp.</h2>
-        <p>Confirm your R180 200g tub, then arrange Aramex courier or Centurion collection directly with Sienna.</p>
-        <a className="button button-dark" href={whatsappUrl} target="_blank" rel="noreferrer">Start your order <span aria-hidden="true">↗</span></a>
+        <p>Confirm your R180 200g tub, choose EFT or cash payment, then arrange Aramex courier or free Centurion collection directly with Sienna.</p>
+        <a className="button button-dark" href={deliveryWhatsAppUrl} target="_blank" rel="noreferrer">Start your order <span aria-hidden="true">↗</span></a>
       </section>
 
       <footer>

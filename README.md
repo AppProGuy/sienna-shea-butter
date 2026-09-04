@@ -18,9 +18,28 @@ Then open the local URL shown in the terminal.
 ## Quality checks
 
 ```bash
+npm run media:optimize
 npm run lint
 npm run build
 ```
+
+Run `npm run media:optimize` whenever a new JPEG or PNG is added to
+`public/media`. It produces the responsive AVIF and WebP versions used by the
+site. Do not remove the original image: it remains the fallback for browsers
+that do not support modern formats.
+
+## Search and measurement
+
+- `robots.txt` and `sitemap.xml` are generated at the site root.
+- The preferred public URL is `https://siennashea.co.za`; the Vercel
+  configuration redirects `www` to that URL and removes trailing slashes after
+  deployment.
+- Page-specific WhatsApp messages identify whether an enquiry came from the
+  homepage, product page, delivery page, or a hair-care guide.
+- Verify the domain in Google Search Console and Bing Webmaster Tools, submit
+  the sitemap, and only then add analytics with an approved privacy approach.
+- The detailed action plan and founder decisions are in
+  [SEO-IMPLEMENTATION-TODO.md](./SEO-IMPLEMENTATION-TODO.md).
 
 ## Technology
 

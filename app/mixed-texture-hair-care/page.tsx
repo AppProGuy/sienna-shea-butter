@@ -13,8 +13,11 @@ export default function MixedTextureHairCarePage() {
       eyebrow="MIXED-TEXTURE HAIR CARE"
       title="Care that can flex with every texture."
       intro="Mixed-texture hair can ask for different things in different places. Start with hydration, use the smallest amount of butter that feels right, and focus on the parts that need it most."
+      path="/mixed-texture-hair-care"
+      updatedAt="2026-09-05T00:00:00.000Z"
       image="/media/community-mother-daughter.jpg"
       imageAlt="A mother and daughter smiling with their natural hair"
+      orderMessage="Hi Sienna Shea Butter! I read your mixed-texture hair-care guide and would like to order the Hibiscus Infused Shea Butter."
       steps={[
         { title: "Notice the driest areas", body: "The crown, ends and tighter curls may need more attention than looser sections. There is no need to use the same amount everywhere." },
         { title: "Add water first", body: "Use butter after water, a leave-in conditioner or another hydrating step. It works as a finishing layer to help maintain the moisture already in the hair." },
