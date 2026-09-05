@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     images: ["/media/hibiscus-shea-butter-hero.jpg"],
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "HD-l42mE_-6SijHhtJIMKpwqnMvMhL6uh9Lp-WtQpIU",
+  },
   icons: { icon: "/favicon.svg" },
 };
 
