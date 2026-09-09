@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ResponsiveImage } from "../responsive-image";
-import {
 import { TrackedCta } from "../tracked-cta";
+import {
   collectionDetails,
   deliveryWhatsAppUrl,
   deliveryPath,
@@ -11,6 +11,7 @@ import { TrackedCta } from "../tracked-cta";
   siteUrl,
   whatsappUrl,
 } from "../site-data";
+
 
 /* eslint-disable @next/next/no-html-link-for-pages */
 
