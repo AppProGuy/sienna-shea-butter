@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { ResponsiveImage } from "../responsive-image";
 import {
+import { TrackedCta } from "../tracked-cta";
   deliveryPath,
   instagramUrl,
   product,
@@ -87,7 +88,7 @@ export default function HibiscusInfusedSheaButterPage() {
           <span className="brand-script">Shea Butter</span>
           <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
-        <a className="header-cta" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <TrackedCta className="header-cta" target="_blank" rel="noreferrer" href={productWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp</TrackedCta>
       </header>
 
       <section className="detail-hero">
@@ -97,7 +98,7 @@ export default function HibiscusInfusedSheaButterPage() {
           <p>A rich, thick hair butter made for moisture-focused routines. Start with a little after hydration, then let your own texture and routine guide the amount.</p>
           <p className="detail-price">R180 <span>per 200g tub</span></p>
           <div className="detail-hero-actions">
-            <a className="button button-dark" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp <span aria-hidden="true">↗</span></a>
+            <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={productWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp <span aria-hidden="true">↗</span></TrackedCta>
             <a className="text-link" href={deliveryPath}>Delivery &amp; collection <span aria-hidden="true">↗</span></a>
             <a className="text-link" href="/natural-hair-care-cost-south-africa">Simple price guide <span aria-hidden="true">↗</span></a>
           </div>
@@ -141,13 +142,13 @@ export default function HibiscusInfusedSheaButterPage() {
         <p className="eyebrow">READY WHEN YOU ARE</p>
         <h2>Order your 200g tub directly from Sienna.</h2>
         <p>Message on WhatsApp to confirm your order, EFT or cash payment, and whether Aramex courier or Centurion collection suits you best.</p>
-        <a className="button button-dark" href={productWhatsAppUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+        <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={productWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Message to order <span aria-hidden="true">↗</span></TrackedCta>
       </section>
 
       <footer>
         <Image src="/sienna-logo.jpg" alt="Sienna Shea Butter" width={100} height={100} />
         <p>Small-batch natural hair care, made with intention in South Africa. <span className="south-africa-flag" role="img" aria-label="South African flag">🇿🇦</span></p>
-        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
+        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><TrackedCta target="_blank" rel="noreferrer" href={whatsappUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp ↗</TrackedCta></div>
       </footer>
     </main>
   );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { CommunityPhotoCarousel } from "./community-photo-carousel";
 import { ResponsiveImage } from "./responsive-image";
 import { homepageWhatsAppUrl, instagramUrl, productPath, siteUrl, whatsappUrl } from "./site-data";
+import { TrackedCta } from "./tracked-cta";
 
 const testimonials = [
   { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
@@ -144,7 +145,7 @@ export default function Home() {
           <a href="/how-to-use-shea-butter">Hair care</a>
           <a href="#love">Customer love</a>
         </nav>
-        <a className="header-cta" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <TrackedCta className="header-cta" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp</TrackedCta>
       </header>
 
       <section className="hero" id="top">
@@ -153,7 +154,7 @@ export default function Home() {
           <h1>Shea butter for soft, manageable natural hair.</h1>
           <p className="hero-intro">Rich, small-batch moisture care for afro, coily, curly, mixed-texture and relaxed hair — made for adults, children and everyday family routines.</p>
           <div className="hero-actions">
-            <a className="button button-dark" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order for R180 <span aria-hidden="true">↗</span></a>
+            <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order for R180 <span aria-hidden="true">↗</span></TrackedCta>
             <a className="text-link" href={productPath}>Meet the butter <span aria-hidden="true">↗</span></a>
           </div>
           <div className="trust-row" aria-label="Product highlights">
@@ -191,7 +192,7 @@ export default function Home() {
             <li>Essential oils</li>
             <li>Fragrance oil</li>
           </ul>
-          <a className="button button-dark" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Order your tub <span aria-hidden="true">↗</span></a>
+          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order your tub <span aria-hidden="true">↗</span></TrackedCta>
           <a className="product-details-link" href={productPath}>View full product details <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -269,7 +270,7 @@ export default function Home() {
           <p className="eyebrow">READY WHEN YOU ARE</p>
           <h2>Order Sienna Shea Butter on WhatsApp.</h2>
           <p>Order your R180 200g tub on WhatsApp. Pay by EFT or cash. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Free collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
-          <a className="button button-light" href={homepageWhatsAppUrl} target="_blank" rel="noreferrer">Message to order <span aria-hidden="true">↗</span></a>
+          <TrackedCta className="button button-light" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Message to order <span aria-hidden="true">↗</span></TrackedCta>
           <a className="order-details-link" href="/delivery-and-collection">Delivery &amp; collection details <span aria-hidden="true">↗</span></a>
           <p className="order-hours">WhatsApp ordering hours: Monday–Friday, 09:00–18:00</p>
         </div>
@@ -283,7 +284,7 @@ export default function Home() {
       <footer>
         <Image src="/sienna-logo.jpg" alt="Sienna Shea Butter" width={100} height={100} />
         <p>Small-batch natural hair care, made with intention in South Africa. <span className="south-africa-flag" role="img" aria-label="South African flag">🇿🇦</span></p>
-        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
+        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><TrackedCta target="_blank" rel="noreferrer" href={whatsappUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp ↗</TrackedCta></div>
       </footer>
     </main>
   );

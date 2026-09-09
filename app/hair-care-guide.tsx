@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ResponsiveImage } from "./responsive-image";
 import { instagramUrl, siteUrl, whatsappOrderUrl, whatsappUrl } from "./site-data";
+import { TrackedCta } from "./tracked-cta";
 
 /* eslint-disable @next/next/no-html-link-for-pages */
 
@@ -91,7 +92,7 @@ export function HairCareGuide({
           <span className="brand-script">Shea Butter</span>
           <span className="brand-origin"><span aria-hidden="true">🇿🇦</span> Made in South Africa</span>
         </a>
-        <a className="header-cta" href={guideWhatsAppUrl} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+        <TrackedCta className="header-cta" target="_blank" rel="noreferrer" href={guideWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp</TrackedCta>
       </header>
 
       <section className="guide-hero">
@@ -100,7 +101,7 @@ export function HairCareGuide({
           <h1>{title}</h1>
           <p>{intro}</p>
           <p className="guide-byline">Written by Mashudu, founder of Sienna Shea Butter · Updated 5 September 2026</p>
-          <a className="button button-dark" href={guideWhatsAppUrl} target="_blank" rel="noreferrer">Order the 200g butter <span aria-hidden="true">↗</span></a>
+          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={guideWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order the 200g butter <span aria-hidden="true">↗</span></TrackedCta>
         </div>
         <figure>
           <ResponsiveImage src={image} alt={imageAlt} width={1080} height={1280} sizes="(max-width: 800px) 88vw, 42vw" priority />
@@ -154,7 +155,7 @@ export function HairCareGuide({
       <footer>
         <Image src="/sienna-logo.jpg" alt="Sienna Shea Butter" width={100} height={100} />
         <p>Small-batch natural hair care, made with intention in South Africa. <span className="south-africa-flag" role="img" aria-label="South African flag">🇿🇦</span></p>
-        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href={whatsappUrl} target="_blank" rel="noreferrer">Order on WhatsApp ↗</a></div>
+        <div className="footer-links"><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><TrackedCta target="_blank" rel="noreferrer" href={whatsappUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp ↗</TrackedCta></div>
       </footer>
     </main>
   );
