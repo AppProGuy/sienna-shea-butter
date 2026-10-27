@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ResponsiveImage } from "../responsive-image";
+import { pageMetadata } from "../seo";
 import { TrackedCta } from "../tracked-cta";
 import {
   collectionDetails,
@@ -15,20 +16,16 @@ import {
 
 /* eslint-disable @next/next/no-html-link-for-pages */
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Shea Butter Delivery & Collection | Centurion | Sienna",
   description:
     "Order Sienna Hibiscus Infused Shea Butter by WhatsApp. Aramex courier starts from R120, or arrange free collection in Eco Park, Centurion, Monday to Friday.",
-  alternates: { canonical: deliveryPath },
-  openGraph: {
-    type: "website",
-    locale: "en_ZA",
-    url: deliveryPath,
-    title: "Sienna Shea Butter Delivery & Collection",
-    description: "Aramex courier across South Africa or pre-arranged collection in Eco Park, Centurion.",
-    images: [{ url: "/media/community-product-closeup.jpg", width: 900, height: 900, alt: "Sienna Shea Butter jar" }],
-  },
-};
+  path: deliveryPath,
+  image: "/media/community-product-closeup.jpg",
+  imageAlt: "Sienna Shea Butter jar",
+  socialTitle: "Sienna Shea Butter Delivery & Collection",
+  socialDescription: "Aramex courier across South Africa or pre-arranged collection in Eco Park, Centurion.",
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -83,7 +80,7 @@ export default function DeliveryAndCollectionPage() {
         <div className="detail-callout">
           <div><h3>Courier starts from R120</h3><p>Aramex delivery starts from R120. The final courier amount can be higher outside the province.</p></div>
           <div><h3>Same-province timing</h3><p>Orders sent within the same province typically arrive within the same week. Courier timing can vary by destination.</p></div>
-          <div><h3>Order and payment confirmation</h3><p>Message Sienna on WhatsApp to confirm your tub, delivery option, and payment details before the order is packed.</p></div>
+          <div><h3>Order and payment confirmation</h3><p>Message Sienna on WhatsApp to confirm your jar size, delivery option, and payment details before the order is packed.</p></div>
         </div>
       </section>
 
@@ -103,7 +100,7 @@ export default function DeliveryAndCollectionPage() {
       <section className="detail-cta">
         <p className="eyebrow">READY WHEN YOU ARE</p>
         <h2>Order Sienna Shea Butter on WhatsApp.</h2>
-        <p>Confirm your R180 200g tub, choose EFT or cash payment, then arrange Aramex courier or free Centurion collection directly with Sienna.</p>
+        <p>Confirm your 250 ml (R180) or 125 ml (R100) jar, choose EFT or cash payment, then arrange Aramex courier or free Centurion collection directly with Sienna.</p>
         <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={deliveryWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Start your order <span aria-hidden="true">↗</span></TrackedCta>
       </section>
 

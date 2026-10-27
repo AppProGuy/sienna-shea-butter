@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { ResponsiveImage } from "./responsive-image";
 import { instagramUrl, siteUrl, whatsappOrderUrl, whatsappUrl } from "./site-data";
 import { TrackedCta } from "./tracked-cta";
@@ -21,19 +22,32 @@ type GuideLink = {
   body: string;
 };
 
+type GuideSection = {
+  heading: string;
+  body: ReactNode;
+};
+
 type HairCareGuideProps = {
   eyebrow: string;
   title: string;
   intro: string;
   path: string;
   updatedAt: string;
+  publishedAt?: string;
   image: string;
   imageAlt: string;
   orderMessage: string;
+  sections?: GuideSection[];
+  stepsTitle?: string;
+  stepsIntro?: string;
   steps: GuideStep[];
   questions: GuideQuestion[];
   related: GuideLink[];
 };
+
+function formatDate(isoDate: string) {
+  return new Intl.DateTimeFormat("en-ZA", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(isoDate));
+}
 
 export function HairCareGuide({
   eyebrow,
@@ -41,9 +55,13 @@ export function HairCareGuide({
   intro,
   path,
   updatedAt,
+  publishedAt,
   image,
   imageAlt,
   orderMessage,
+  sections,
+  stepsTitle = "Start small and listen to your hair.",
+  stepsIntro = "Sienna is a rich cosmetic hair butter. Use it after hydration, begin with a little, and adjust for your hair length, density and routine.",
   steps,
   questions,
   related,
@@ -58,7 +76,9 @@ export function HairCareGuide({
     description: intro,
     mainEntityOfPage: pageUrl,
     image: `${siteUrl}${image}`,
+    ...(publishedAt ? { datePublished: publishedAt } : {}),
     dateModified: updatedAt,
+    inLanguage: "en-ZA",
     author: { "@id": `${siteUrl}/#mashudu` },
     publisher: { "@id": `${siteUrl}/#organization` },
     articleSection: eyebrow,
@@ -100,19 +120,34 @@ export function HairCareGuide({
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p>{intro}</p>
-          <p className="guide-byline">Written by Mashudu, founder of Sienna Shea Butter · Updated 5 September 2026</p>
-          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={guideWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order the 200g butter <span aria-hidden="true">↗</span></TrackedCta>
+          <p className="guide-byline">Written by Mashudu, founder of Sienna Shea Butter · Updated {formatDate(updatedAt)}</p>
+          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={guideWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order on WhatsApp · from R100 <span aria-hidden="true">↗</span></TrackedCta>
         </div>
         <figure>
           <ResponsiveImage src={image} alt={imageAlt} width={1080} height={1280} sizes="(max-width: 800px) 88vw, 42vw" priority />
         </figure>
       </section>
 
+      {sections && sections.length > 0 && (
+        <article className="guide-article">
+          {sections.map((section) => (
+            <section key={section.heading}>
+              <h2>{section.heading}</h2>
+              {section.body}
+            </section>
+          ))}
+          <aside className="guide-article-cta">
+            <p>Questions about your routine, or ready to order the 250 ml (R180) or 125 ml (R100) jar? Mashudu answers personally on WhatsApp.</p>
+            <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={guideWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Chat on WhatsApp <span aria-hidden="true">↗</span></TrackedCta>
+          </aside>
+        </article>
+      )}
+
       <section className="guide-content" aria-labelledby="guide-steps-title">
         <div className="guide-intro">
           <p className="eyebrow">A SIMPLE ROUTINE</p>
-          <h2 id="guide-steps-title">Start small and listen to your hair.</h2>
-          <p>Sienna is a rich cosmetic hair butter. Use it after hydration, begin with a little, and adjust for your hair length, density and routine.</p>
+          <h2 id="guide-steps-title">{stepsTitle}</h2>
+          <p>{stepsIntro}</p>
         </div>
         <ol className="guide-steps">
           {steps.map((step, index) => (
