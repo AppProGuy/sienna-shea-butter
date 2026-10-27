@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Shea Butter and Hair Porosity | Sienna South Africa",
-  description:
-    "Learn how to adjust a rich shea butter routine for hair that feels easily weighed down, thirsty, or different from section to section.",
-  alternates: { canonical: "/shea-butter-hair-porosity" },
-};
+  description: "Learn how to adjust a rich shea butter routine for hair that feels easily weighed down, thirsty, or different from section to section.",
+  path: "/shea-butter-hair-porosity",
+  image: "/media/community-natural-hair.jpg",
+  imageAlt: "A customer showing her natural hair",
+  type: "article",
+});
 
 export default function SheaButterHairPorosityPage() {
   return (

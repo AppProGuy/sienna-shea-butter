@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Can You Use Shea Butter on Relaxed Hair? | Sienna South Africa",
-  description:
-    "A practical guide to using a small amount of shea butter on relaxed hair, with tips for dry lengths, ends and gentle everyday styling.",
-  alternates: { canonical: "/shea-butter-relaxed-hair" },
-};
+  description: "A practical guide to using a small amount of shea butter on relaxed hair, with tips for dry lengths, ends and gentle everyday styling.",
+  path: "/shea-butter-relaxed-hair",
+  image: "/media/community-soft-hair.jpg",
+  imageAlt: "A Sienna customer showing soft, cared-for hair",
+  type: "article",
+});
 
 export default function SheaButterRelaxedHairPage() {
   return (

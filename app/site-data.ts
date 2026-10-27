@@ -9,25 +9,30 @@ export const deliveryUrl = `${siteUrl}${deliveryPath}`;
 // They are intentionally not build timestamps: search engines use sitemap dates as
 // a freshness signal.
 export const pageLastModified = {
-  home: "2026-09-05T00:00:00.000Z",
-  product: "2026-09-05T00:00:00.000Z",
-  delivery: "2026-09-05T00:00:00.000Z",
-  howToUse: "2026-09-05T00:00:00.000Z",
+  home: "2026-10-27T00:00:00.000Z",
+  product: "2026-10-27T00:00:00.000Z",
+  delivery: "2026-10-27T00:00:00.000Z",
+  howToUse: "2026-10-27T00:00:00.000Z",
   kids: "2026-09-05T00:00:00.000Z",
   mixedTexture: "2026-09-05T00:00:00.000Z",
   relaxed: "2026-09-05T00:00:00.000Z",
   porosity: "2026-09-05T00:00:00.000Z",
   locLco: "2026-09-05T00:00:00.000Z",
   highveldWinter: "2026-09-05T00:00:00.000Z",
-  costGuide: "2026-09-05T00:00:00.000Z",
+  costGuide: "2026-10-27T00:00:00.000Z",
+  fourCHair: "2026-10-27T00:00:00.000Z",
+  hibiscusForHair: "2026-10-27T00:00:00.000Z",
+  summerSkincare: "2026-10-27T00:00:00.000Z",
 } as const;
 
 export const product = {
   name: "Sienna Hibiscus Infused Shea Butter",
   shortName: "Hibiscus Infused Shea Butter",
-  price: "180",
   currency: "ZAR",
-  weight: "200g",
+  sizes: [
+    { label: "250 ml", millilitres: 250, price: "180" },
+    { label: "125 ml", millilitres: 125, price: "100" },
+  ],
   image: "/media/hibiscus-shea-butter-hero.jpg",
   imageAlt: "A jar of Sienna Hibiscus Infused Shea Butter with a gold lid",
   description:
@@ -39,6 +44,18 @@ export const collectionDetails = {
   hours: "Monday–Friday, 09:00–18:00",
   courier: "Aramex",
   courierFrom: "R120",
+} as const;
+
+export const business = {
+  name: "Sienna Shea Butter",
+  locality: "Centurion",
+  region: "Gauteng",
+  country: "ZA",
+  telephone: "+27 60 772 9916",
+  // Shown as text only. Not marked up as AggregateRating: the reviews live on the
+  // Google Business Profile, and self-hosted review markup is not eligible.
+  googleRating: "5.0",
+  googleReviewCount: 21,
 } as const;
 
 export function whatsappOrderUrl(message: string) {
@@ -54,7 +71,7 @@ export const homepageWhatsAppUrl = whatsappOrderUrl(
 );
 
 export const productWhatsAppUrl = whatsappOrderUrl(
-  "Hi Sienna Shea Butter! I would like to order the R180 200g Hibiscus Infused Shea Butter."
+  "Hi Sienna Shea Butter! I would like to order the Hibiscus Infused Shea Butter (250 ml R180 or 125 ml R100)."
 );
 
 export const deliveryWhatsAppUrl = whatsappOrderUrl(
