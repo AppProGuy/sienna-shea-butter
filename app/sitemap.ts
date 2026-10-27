@@ -14,5 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/loc-lco-shea-butter`, lastModified: pageLastModified.locLco, changeFrequency: "monthly", priority: 0.75 },
     { url: `${siteUrl}/highveld-winter-hair-care`, lastModified: pageLastModified.highveldWinter, changeFrequency: "monthly", priority: 0.7 },
     { url: `${siteUrl}/natural-hair-care-cost-south-africa`, lastModified: pageLastModified.costGuide, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/shea-butter-4c-hair`, lastModified: pageLastModified.fourCHair, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${siteUrl}/hibiscus-for-hair`, lastModified: pageLastModified.hibiscusForHair, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${siteUrl}/shea-butter-skincare-routine-south-african-summer`, lastModified: pageLastModified.summerSkincare, changeFrequency: "monthly", priority: 0.7 },
   ];
 }

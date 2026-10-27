@@ -13,4 +13,7 @@ export const publicPaths = [
   "/loc-lco-shea-butter",
   "/highveld-winter-hair-care",
   "/natural-hair-care-cost-south-africa",
+  "/shea-butter-4c-hair",
+  "/hibiscus-for-hair",
+  "/shea-butter-skincare-routine-south-african-summer",
 ];
