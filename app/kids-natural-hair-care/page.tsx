@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Kids’ Natural Hair Care | Sienna Shea Butter South Africa",
   description: "A simple, gentle routine for kids’ afro, coily, curly and mixed-texture hair, with practical sectioning and moisture-care tips from Sienna Shea Butter.",
-  alternates: { canonical: "/kids-natural-hair-care" },
-};
+  path: "/kids-natural-hair-care",
+  image: "/media/community-parent-child-product.jpg",
+  imageAlt: "A parent and child holding Sienna Shea Butter",
+  type: "article",
+});
 
 export default function KidsNaturalHairCarePage() {
   return (

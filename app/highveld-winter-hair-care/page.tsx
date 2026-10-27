@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Highveld Winter Hair Care for Natural Hair | Sienna South Africa",
-  description:
-    "A simple, moisture-focused natural-hair routine for dry Highveld winter days, with practical ways to use a rich shea butter lightly.",
-  alternates: { canonical: "/highveld-winter-hair-care" },
-};
+  description: "A simple, moisture-focused natural-hair routine for dry Highveld winter days, with practical ways to use a rich shea butter lightly.",
+  path: "/highveld-winter-hair-care",
+  image: "/media/community-mens-hair.jpg",
+  imageAlt: "A Sienna customer sharing his cared-for hair",
+  type: "article",
+});
 
 export default function HighveldWinterHairCarePage() {
   return (
@@ -32,7 +35,7 @@ export default function HighveldWinterHairCarePage() {
       ]}
       related={[
         { href: "/how-to-use-shea-butter", title: "How to use shea butter", body: "A simple way to use a rich butter after hydration." },
-        { href: "/loc-lco-shea-butter", title: "LOC and LCO layering", body: "See where shea butter can fit in a moisture-focused routine." },
+        { href: "/shea-butter-skincare-routine-south-african-summer", title: "Summer shea butter skincare", body: "How to use a rich butter lightly when the weather turns hot." },
       ]}
     />
   );
