@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Mixed-Texture Hair Care | Sienna Shea Butter South Africa",
   description: "A flexible moisture-care routine for mixed-texture, curly, coily and afro hair, including simple ways to use a rich shea butter without weighing hair down.",
-  alternates: { canonical: "/mixed-texture-hair-care" },
-};
+  path: "/mixed-texture-hair-care",
+  image: "/media/community-mother-daughter.jpg",
+  imageAlt: "A mother and daughter smiling with their natural hair",
+  type: "article",
+});
 
 export default function MixedTextureHairCarePage() {
   return (

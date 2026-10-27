@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { HairCareGuide } from "../hair-care-guide";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "LOC vs LCO: Where Does Shea Butter Fit? | Sienna South Africa",
-  description:
-    "A simple, hydration-first guide to LOC and LCO routines, including where a thick shea butter can fit for afro, coily and curly hair.",
-  alternates: { canonical: "/loc-lco-shea-butter" },
-};
+  description: "A simple, hydration-first guide to LOC and LCO routines, including where a thick shea butter can fit for afro, coily and curly hair.",
+  path: "/loc-lco-shea-butter",
+  image: "/media/community-hot-oil-care.jpg",
+  imageAlt: "A customer sharing moisturised hair after a care routine",
+  type: "article",
+});
 
 export default function LocLcoSheaButterPage() {
   return (
@@ -32,7 +35,7 @@ export default function LocLcoSheaButterPage() {
       ]}
       related={[
         { href: "/how-to-use-shea-butter", title: "How to use shea butter", body: "A straightforward step-by-step routine for a rich butter." },
-        { href: "/shea-butter-hair-porosity", title: "Shea butter and porosity", body: "Learn how to adjust the amount to how your hair responds." },
+        { href: "/hibiscus-for-hair", title: "Hibiscus for hair", body: "What hibiscus can and can’t do in a hair-care routine—honestly." },
       ]}
     />
   );
