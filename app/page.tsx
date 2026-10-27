@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { CommunityPhotoCarousel } from "./community-photo-carousel";
 import { ResponsiveImage } from "./responsive-image";
-import { homepageWhatsAppUrl, instagramUrl, productPath, siteUrl, whatsappUrl } from "./site-data";
+import { pageMetadata } from "./seo";
+import { business, homepageWhatsAppUrl, instagramUrl, productPath, whatsappUrl } from "./site-data";
 import { TrackedCta } from "./tracked-cta";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Hibiscus Shea Butter for Natural Hair | Sienna, Centurion",
+  description: "Handmade in Centurion by Mashudu: Sienna Hibiscus Infused Shea Butter for afro, coily, curly, mixed-texture, relaxed and kids’ hair. 250 ml R180 or 125 ml R100. Order on WhatsApp.",
+  path: "/",
+  image: "/media/hibiscus-shea-butter-hero.jpg",
+  imageAlt: "Sienna Hibiscus Infused Shea Butter",
+  socialTitle: "Sienna Shea Butter for Natural & Family Hair Care",
+  socialDescription: "Small-batch hibiscus-infused shea butter, handmade in Centurion. 250 ml R180 or 125 ml R100. Order on WhatsApp in South Africa.",
+});
 
 const testimonials = [
   { quote: "Absolutely love the new Sienna. My hair is so soft.", source: "Mukonie" },
@@ -29,7 +41,7 @@ const communityPhotos = [
   { src: "/media/community-man-product.jpg", alt: "A male customer showing his Sienna Shea Butter" },
   { src: "/media/community-baby-jar.jpg", alt: "A young child holding a jar of Sienna Shea Butter" },
   { src: "/media/community-hot-oil-care.jpg", alt: "A customer sharing her moisturised hair after a hot-oil care session" },
-  { src: "/media/community-three-week-update.jpg", alt: "A customer sharing her hair progress after three weeks" },
+  { src: "/media/community-three-week-update.jpg", alt: "A customer sharing a three-week update on her hair-care routine" },
   { src: "/media/community-smiling-customer.jpg", alt: "A smiling customer holding her Sienna Shea Butter" },
   { src: "/media/community-mens-hair.jpg", alt: "A customer showing his moisturised natural hair" },
   { src: "/media/community-mother-daughter.jpg", alt: "A mother and daughter smiling with their natural hair" },
@@ -61,8 +73,8 @@ const faqs = [
     answer: "Sienna is a cosmetic hair butter for moisture-focused care, not a medical treatment. If your scalp is sore, inflamed, or persistently itchy, stop use and speak to a healthcare professional.",
   },
   {
-    question: "How long does a 200g tub last?",
-    answer: "Because Sienna is thick, a 200g tub can last about one to two months depending on hair length, density, and how often you use it.",
+    question: "What sizes are available and how long does a jar last?",
+    answer: "Sienna comes in a 250 ml jar for R180 and a 125 ml jar for R100. Because the butter is thick, the 250 ml jar can last about one to two months depending on hair length, density, and how often you use it; the 125 ml jar lasts roughly half as long.",
   },
   {
     question: "Can I use it on my skin?",
@@ -82,39 +94,6 @@ const faqs = [
   },
 ];
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@id": `${siteUrl}/#organization`,
-  "@type": "Organization",
-  name: "Sienna Shea Butter",
-  url: siteUrl,
-  logo: `${siteUrl}/sienna-logo.jpg`,
-  telephone: "+27 60 772 9916",
-  description: "South African small-batch hibiscus-infused shea butter for natural, afro, coily, curly, mixed-texture, relaxed, and kids’ hair care.",
-  foundingDate: "2019",
-  areaServed: { "@type": "Country", name: "South Africa" },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "sales",
-    telephone: "+27 60 772 9916",
-    areaServed: { "@type": "Country", name: "South Africa" },
-    availableLanguage: "en",
-  },
-  founder: { "@id": `${siteUrl}/#mashudu` },
-  sameAs: [instagramUrl],
-};
-
-const founderSchema = {
-  "@context": "https://schema.org",
-  "@id": `${siteUrl}/#mashudu`,
-  "@type": "Person",
-  name: "Mashudu",
-  jobTitle: "Founder",
-  worksFor: { "@id": `${siteUrl}/#organization` },
-  description: "Founder of Sienna Shea Butter, a South African small-batch hair-care brand.",
-  sameAs: [instagramUrl],
-};
-
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -128,8 +107,6 @@ const faqSchema = {
 export default function Home() {
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(founderSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="announcement">Small-batch natural hair care made in South Africa</div>
@@ -154,12 +131,12 @@ export default function Home() {
           <h1>Shea butter for soft, manageable natural hair.</h1>
           <p className="hero-intro">Rich, small-batch moisture care for afro, coily, curly, mixed-texture and relaxed hair — made for adults, children and everyday family routines.</p>
           <div className="hero-actions">
-            <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order for R180 <span aria-hidden="true">↗</span></TrackedCta>
+            <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order from R100 <span aria-hidden="true">↗</span></TrackedCta>
             <a className="text-link" href={productPath}>Meet the butter <span aria-hidden="true">↗</span></a>
           </div>
           <div className="trust-row" aria-label="Product highlights">
             <span><b>Small-batch</b> made</span>
-            <span><b>200g</b> per tub</span>
+            <span><b>250 ml or 125 ml</b> jars</span>
             <span><b>Rich texture</b> a little goes far</span>
           </div>
         </div>
@@ -172,7 +149,7 @@ export default function Home() {
       <section className="intro-band" id="butter">
         <p className="eyebrow">FOR THE WHOLE FAMILY</p>
         <h2>One pot. Many hair stories.</h2>
-        <p>Sienna Shea Butter was created for real routines: wash days, kids’ hair, dry ends, detangling, protective styles, beard care and the days between.</p>
+        <p>Sienna Shea Butter is handmade in small batches in Centurion by founder Mashudu, for real routines: wash days, kids’ hair, dry ends, detangling, protective styles, beard care and the days between.</p>
       </section>
 
       <section className="product-section">
@@ -180,7 +157,7 @@ export default function Home() {
         <div className="product-details">
           <p className="eyebrow">THE ORIGINAL</p>
           <h2>Hibiscus Infused Shea Butter</h2>
-          <p className="price">R180 <span>per 200g tub</span></p>
+          <p className="price">R180 <span>250 ml</span> · R100 <span>125 ml</span></p>
           <p>A thick, nourishing hair butter created to go a long way. Warm a small amount between your palms, then smooth it over damp, hydrated hair to help seal in moisture.</p>
           <h3 className="ingredients-heading">What’s inside</h3>
           <ul className="ingredient-list">
@@ -192,7 +169,7 @@ export default function Home() {
             <li>Essential oils</li>
             <li>Fragrance oil</li>
           </ul>
-          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order your tub <span aria-hidden="true">↗</span></TrackedCta>
+          <TrackedCta className="button button-dark" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Order your jar <span aria-hidden="true">↗</span></TrackedCta>
           <a className="product-details-link" href={productPath}>View full product details <span aria-hidden="true">↗</span></a>
         </div>
       </section>
@@ -258,7 +235,7 @@ export default function Home() {
       <section className="love-section" id="love">
         <div className="love-heading">
           <div><p className="eyebrow">CUSTOMER LOVE</p><h2>Words shared with Sienna.</h2></div>
-          <p>These are real customer messages, shared under the names shown in the original WhatsApp and social posts.</p>
+          <p>These are real customer messages, shared under the names shown in the original WhatsApp and social posts. Sienna is also rated {business.googleRating} stars from {business.googleReviewCount} reviews on Google.</p>
         </div>
         <div className="testimonial-grid">
           {testimonials.map((testimonial) => <figure key={testimonial.source}><blockquote>“{testimonial.quote}”</blockquote><figcaption>{testimonial.source}</figcaption></figure>)}
@@ -269,7 +246,7 @@ export default function Home() {
         <div className="order-copy">
           <p className="eyebrow">READY WHEN YOU ARE</p>
           <h2>Order Sienna Shea Butter on WhatsApp.</h2>
-          <p>Order your R180 200g tub on WhatsApp. Pay by EFT or cash. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Free collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
+          <p>Order the 250 ml jar (R180) or 125 ml jar (R100) on WhatsApp. Pay by EFT or cash. Aramex courier starts from R120; same-province orders typically arrive within the same week, while other destinations may cost more. Free collection in Eco Park, Centurion can be arranged on WhatsApp.</p>
           <TrackedCta className="button button-light" target="_blank" rel="noreferrer" href={homepageWhatsAppUrl} events={["whatsapp_click", "order_click"]}>Message to order <span aria-hidden="true">↗</span></TrackedCta>
           <a className="order-details-link" href="/delivery-and-collection">Delivery &amp; collection details <span aria-hidden="true">↗</span></a>
           <p className="order-hours">WhatsApp ordering hours: Monday–Friday, 09:00–18:00</p>
