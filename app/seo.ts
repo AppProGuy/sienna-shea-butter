@@ -52,7 +52,12 @@ export const organizationSchema = {
   "@type": ["Organization", "LocalBusiness"],
   name: business.name,
   url: siteUrl,
-  logo: `${siteUrl}/sienna-logo.jpg`,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/sienna-logo.jpg`,
+    width: 933,
+    height: 907,
+  },
   image: `${siteUrl}/media/hibiscus-shea-butter-hero.jpg`,
   telephone: business.telephone,
   priceRange: "R100–R180",
